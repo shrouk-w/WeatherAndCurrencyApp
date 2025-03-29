@@ -8,6 +8,7 @@ package zad1;
 
 
 import zad1.controllers.CurrencyController;
+import zad1.controllers.NbpController;
 import zad1.controllers.RestCountriesController;
 import zad1.model.RestCountryApiCaller;
 import zad1.model.WeatherApiCaller;
@@ -15,9 +16,11 @@ import zad1.model.WeatherApiCaller;
 public class Service {
 
     String country;
+    String currcode;
 
     public Service(String country) {
         this.country = country;
+        currcode = RestCountriesController.getCurrencyCode(country);
     }
 
     public String getWeather(String city) {
@@ -25,13 +28,13 @@ public class Service {
     }
 
     public double getRateFor(String currency) {
-        String code = RestCountriesController.getCurrencyCode(country);
-
-        return CurrencyController.getExchangeRates(code, currency);
+        return CurrencyController.getExchangeRates(currcode, currency);
     }
 
 
     public Double getNBPRate() {
-        return 0d;
+        if(currcode.equals("PLN"))
+            return 1d;
+        return NbpController.getRateToPLN(currcode);
     }
 }

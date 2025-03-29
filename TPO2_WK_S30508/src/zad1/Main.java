@@ -8,8 +8,10 @@ package zad1;
 
 
 import zad1.controllers.CurrencyController;
+import zad1.controllers.NbpController;
 import zad1.controllers.RestCountriesController;
 import zad1.model.CurrencyApiCaller;
+import zad1.model.NbpApiCaller;
 import zad1.model.RestCountryApiCaller;
 import zad1.model.WeatherApiCaller;
 
@@ -22,8 +24,7 @@ public class Main {
     // ...
     // część uruchamiająca GUI
 
-
-
+    System.out.println(rate2);
 
 
   }
