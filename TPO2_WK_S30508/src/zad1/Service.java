@@ -7,6 +7,9 @@
 package zad1;
 
 
+import zad1.controllers.CurrencyController;
+import zad1.controllers.RestCountriesController;
+import zad1.model.RestCountryApiCaller;
 import zad1.model.WeatherApiCaller;
 
 public class Service {
@@ -22,12 +25,12 @@ public class Service {
     }
 
     public double getRateFor(String currency) {
-        return 0;
-    }
-
-    public double getNBPRate() {
-        return 0;
+        String code = RestCountriesController.getCurrencyCode(currency);
+        return CurrencyController.getExchangeRates(code, currency);
     }
 
 
+    public Double getNBPRate() {
+        return 0d;
+    }
 }

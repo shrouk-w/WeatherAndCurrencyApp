@@ -1,13 +1,19 @@
 package zad1.controllers;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import zad1.model.CurrencyApiCaller;
+import zad1.model.RestCountryApiCaller;
 
 public class CurrencyController {
 
-    public static String getExchangeRates(String defaultcurrency, String currency) {
+    public static double getExchangeRates(String defaultcurrency, String currency) {
         defaultcurrency = defaultcurrency.toUpperCase();
         currency = currency.toUpperCase();
-        return CurrencyApiCaller.getExchangeRates(defaultcurrency, currency);
+
+        Gson gson = new Gson();
+        JsonObject CurrencyData = gson.fromJson(CurrencyApiCaller.getExchangeRates(defaultcurrency, currency), JsonObject.class);
+        return CurrencyData.get("conversion_rate").getAsDouble();
     }
 
 }
