@@ -7,5 +7,27 @@
 package zad1;
 
 
+import zad1.model.WeatherApiCaller;
+
 public class Service {
-}  
+
+    String country;
+
+    public Service(String country) {
+        this.country = country;
+    }
+
+    public String getWeather(String city) {
+        return WeatherApiCaller.getWeather(city);
+    }
+
+    public double getRateFor(String currency) {
+        return 0;
+    }
+
+    public double getNBPRate() {
+        return 0;
+    }
+
+
+}

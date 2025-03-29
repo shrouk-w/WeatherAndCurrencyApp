@@ -7,6 +7,8 @@
 package zad1;
 
 
+import zad1.model.WeatherApiCaller;
+
 public class Main {
   public static void main(String[] args) {
     Service s = new Service("Poland");
@@ -15,5 +17,8 @@ public class Main {
     Double rate2 = s.getNBPRate();
     // ...
     // część uruchamiająca GUI
+
+    System.out.println(weatherJson);
+    //System.out.println(WeatherApiCaller.getWeather("Warsaw"));
   }
 }
