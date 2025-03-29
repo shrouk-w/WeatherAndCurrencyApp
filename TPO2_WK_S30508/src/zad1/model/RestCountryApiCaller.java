@@ -1,7 +1,5 @@
 package zad1.model;
 
-import zad1.keys.APIKEYS;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;

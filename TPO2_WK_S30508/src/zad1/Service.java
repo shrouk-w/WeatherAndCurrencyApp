@@ -7,14 +7,10 @@
 package zad1;
 
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import zad1.controllers.CurrencyController;
 import zad1.controllers.NbpController;
 import zad1.controllers.RestCountriesController;
 import zad1.controllers.WeatherController;
-import zad1.model.RestCountryApiCaller;
 import zad1.model.WeatherApiCaller;
 
 public class Service {

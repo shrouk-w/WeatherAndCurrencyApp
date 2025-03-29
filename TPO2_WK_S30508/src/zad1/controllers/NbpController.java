@@ -2,7 +2,6 @@ package zad1.controllers;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import zad1.model.CurrencyApiCaller;
 import zad1.model.NbpApiCaller;
 
 public class NbpController {
