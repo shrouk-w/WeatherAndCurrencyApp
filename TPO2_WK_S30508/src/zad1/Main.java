@@ -7,6 +7,8 @@
 package zad1;
 
 
+import zad1.model.CurrencyApiCaller;
+import zad1.model.RestCountryApiCaller;
 import zad1.model.WeatherApiCaller;
 
 public class Main {
@@ -18,7 +20,7 @@ public class Main {
     // ...
     // część uruchamiająca GUI
 
-    System.out.println(weatherJson);
+    System.out.println(RestCountryApiCaller.getCurrencyCode("poland"));
     //System.out.println(WeatherApiCaller.getWeather("Warsaw"));
   }
 }
