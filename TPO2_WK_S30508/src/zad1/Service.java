@@ -25,7 +25,8 @@ public class Service {
     }
 
     public double getRateFor(String currency) {
-        String code = RestCountriesController.getCurrencyCode(currency);
+        String code = RestCountriesController.getCurrencyCode(country);
+
         return CurrencyController.getExchangeRates(code, currency);
     }
 
