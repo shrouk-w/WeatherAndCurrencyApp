@@ -10,6 +10,7 @@ package zad1;
 import zad1.controllers.CurrencyController;
 import zad1.controllers.NbpController;
 import zad1.controllers.RestCountriesController;
+import zad1.gui.GuiHandler;
 import zad1.model.CurrencyApiCaller;
 import zad1.model.NbpApiCaller;
 import zad1.model.RestCountryApiCaller;
@@ -21,11 +22,8 @@ public class Main {
     String weatherJson = s.getWeather("Warsaw");
     Double rate1 = s.getRateFor("USD");
     Double rate2 = s.getNBPRate();
-    // ...
-    // część uruchamiająca GUI
 
-    System.out.println(rate2);
-
+    GuiHandler.main();
 
   }
 }
