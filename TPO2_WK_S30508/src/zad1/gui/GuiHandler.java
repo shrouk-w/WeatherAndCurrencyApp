@@ -53,7 +53,7 @@ public class GuiHandler extends Application {
         layout.setVgap(10);
         layout.add(layout1, 0, 0);
         layout.add(consoleArea, 0, 1);
-        //layout.add(webView, 1, 1,1,2);
+        layout.add(webView, 1, 0,1,2);
 
         Scene scene = new Scene(layout, 1000, 500);
         primaryStage.setTitle("Data Input Form");
@@ -67,10 +67,11 @@ public class GuiHandler extends Application {
             city = CityField.getText();
             currencycode = CurrencyCodeField.getText();
             Service ser = new Service(country);
-            consoleArea.appendText(ser.getNBPRate() + "\n");
+            consoleArea.appendText(ser.getActualWeather(city) + "\n");
 
-            //String url = "https://en.wikipedia.org/wiki/" + city;
-            // webEngine.load(url);
+
+            String url = "https://en.wikipedia.org/wiki/" + city;
+            webEngine.load(url);
         });
     }
 

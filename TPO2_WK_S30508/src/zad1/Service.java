@@ -7,9 +7,13 @@
 package zad1;
 
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import zad1.controllers.CurrencyController;
 import zad1.controllers.NbpController;
 import zad1.controllers.RestCountriesController;
+import zad1.controllers.WeatherController;
 import zad1.model.RestCountryApiCaller;
 import zad1.model.WeatherApiCaller;
 
@@ -31,10 +35,13 @@ public class Service {
         return CurrencyController.getExchangeRates(currcode, currency);
     }
 
-
     public Double getNBPRate() {
         if(currcode.equals("PLN"))
             return 1d;
         return NbpController.getRateToPLN(currcode);
+    }
+
+    public String getActualWeather(String city) {
+        return WeatherController.getWeather(city);
     }
 }
