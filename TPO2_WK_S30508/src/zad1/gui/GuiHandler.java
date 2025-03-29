@@ -1,6 +1,7 @@
 package zad1.gui;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -36,6 +37,8 @@ public class GuiHandler extends Application {
         Button submitButton = new Button("Submit");
 
         VBox layout1 = new VBox(10);
+        layout1.setAlignment(Pos.TOP_CENTER);
+
         layout1.getChildren().addAll(countryLabel, CountryField, cityLabel, CityField,currencyLabel, CurrencyCodeField, submitButton);
 
 
@@ -49,8 +52,6 @@ public class GuiHandler extends Application {
 
 
         GridPane layout = new GridPane();
-        layout.setHgap(10);
-        layout.setVgap(10);
         layout.add(layout1, 0, 0);
         layout.add(consoleArea, 0, 1);
         layout.add(webView, 1, 0,1,2);
@@ -67,8 +68,9 @@ public class GuiHandler extends Application {
             city = CityField.getText();
             currencycode = CurrencyCodeField.getText();
             Service ser = new Service(country);
-            consoleArea.appendText(ser.getActualWeather(city) + "\n");
-
+            consoleArea.appendText(ser.getActualWeather(city)+"\n");
+            consoleArea.appendText("exchange rate between: "+ser.getCurrcode()+" and "+currencycode.toUpperCase()+": "+ser.getRateFor(currencycode) + "\n");
+            consoleArea.appendText("exchange rate between: "+ser.getCurrcode()+" and PLN:" +ser.getNBPRate() + "\n");
 
             String url = "https://en.wikipedia.org/wiki/" + city;
             webEngine.load(url);

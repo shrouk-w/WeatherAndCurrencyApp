@@ -25,7 +25,7 @@ public class WeatherController {
 
         city = city.substring(0, 1).toUpperCase() + city.substring(1).toLowerCase();
 
-        return city + "\n" +"temperature: "+temperature+"\n"+"pressure: "+pressure+"\n"+"humidity: "+humidity+"\n"+"desc: "+description;
+        return city + "\n" +"temperature: "+temperature+"\n"+"pressure: "+pressure+"\n"+"humidity: "+humidity+"\n"+"description: "+description+"\n";
     }
 
 }

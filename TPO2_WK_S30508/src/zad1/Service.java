@@ -44,4 +44,12 @@ public class Service {
     public String getActualWeather(String city) {
         return WeatherController.getWeather(city);
     }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getCurrcode() {
+        return currcode;
+    }
 }
