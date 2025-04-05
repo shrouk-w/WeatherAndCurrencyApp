@@ -7,10 +7,7 @@
 package zad1;
 
 
-import zad1.controllers.CurrencyController;
-import zad1.controllers.NbpController;
-import zad1.controllers.RestCountriesController;
-import zad1.controllers.WeatherController;
+import zad1.controllers.*;
 import zad1.model.WeatherApiCaller;
 
 public class Service {
@@ -20,7 +17,7 @@ public class Service {
 
     public Service(String country) {
         this.country = country;
-        currcode = RestCountriesController.getCurrencyCode(country);
+        currcode = CountryCurrencyCodeController.getCode(country);
     }
 
     public String getWeather(String city) {

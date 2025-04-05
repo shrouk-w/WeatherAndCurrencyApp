@@ -6,8 +6,6 @@
 
 package zad1;
 
-
-
 import zad1.gui.GuiHandler;
 
 
