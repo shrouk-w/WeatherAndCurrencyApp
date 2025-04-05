@@ -8,31 +8,39 @@ import java.net.URL;
 public class NbpApiCaller {
 
     public static String getRateToPLN(String currency) {
-        String urlstring = "https://api.nbp.pl/api/exchangerates/rates/A/" + currency + "/?format=json";
-        try {
-            URL url = new URL(urlstring);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
 
-            int responseCode = conn.getResponseCode();
-            if (responseCode == 200) {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                StringBuilder response = new StringBuilder();
-                String line;
+        String[] wompwomp = {"A", "B", "C"};
 
-                while ((line = reader.readLine()) != null) {
-                    response.append(line);
+        for(String womp : wompwomp) {
+            String urlstring = "https://api.nbp.pl/api/exchangerates/rates/"+ womp +"/" + currency + "/?format=json";
+            try {
+                URL url = new URL(urlstring);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+
+                int responseCode = conn.getResponseCode();
+                if (responseCode == 200) {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    StringBuilder response = new StringBuilder();
+                    String line;
+
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+                    reader.close();
+
+
+                    return response.toString();
+
+                }else if(responseCode == 404){
+                    continue;
                 }
-                reader.close();
-
-
-                return response.toString();
-
-            } else {
-                System.out.println("Error: " + responseCode);
+                else {
+                    System.out.println("Error: " + responseCode);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return null;
     }
