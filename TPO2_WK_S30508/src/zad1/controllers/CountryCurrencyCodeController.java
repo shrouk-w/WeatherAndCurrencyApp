@@ -19,7 +19,7 @@ public class CountryCurrencyCodeController {
                 try {
                     return  Currency.getInstance(locale).getCurrencyCode();
                 } catch (IllegalArgumentException e) {
-                    System.out.println("Brak waluty dla tego kraju.");
+                    return "usd";
                 }
             }
         }
